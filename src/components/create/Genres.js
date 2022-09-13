@@ -1,17 +1,31 @@
+function Genres({ genres, handleClick, selectedGenres  }) {
+  
 
-function Genres({genres}) {
-
-    const genreButtons = genres.map (genre => {
-        return (
-            <button className="genre-buttons">{genre}</button>
-        )
-    })
-
+  const selectedGenresP = selectedGenres.map((selectedGenre) => {
+    return <p>{selectedGenre}</p>;
+  });
+  // highlight
+  const genreButtons = genres.map((genre) => {
     return (
-        <div id ="button-div">
-            {genreButtons}
-        </div>
-    )
+      <button
+        className={
+          selectedGenres.includes(genre)
+            ? "genre-buttons active"
+            : "genre-buttons"
+        }
+        onClick={() => handleClick(genre)}
+      >
+        {genre}
+      </button>
+    );
+  });
+
+  return (
+    <div>
+      <p>{selectedGenresP}</p>
+      <div id="button-div">{genreButtons}</div>
+    </div>
+  );
 }
 
-export default Genres
+export default Genres;
