@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import Genres from "./Genres"
 import CreatedPlaylist from "./CreatedPlaylist"
 
-function CreatePlaylist() {
+function CreatePlaylist( {token}) {
 
     const [genres, setGenres] = useState([])
     const [selectedGenres, setSelectedGenres] = useState([]);
@@ -20,7 +20,7 @@ function CreatePlaylist() {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer BQDVfTnegFTzej196OGlZxJ3lcq35DeJ6rp3CBTVmoDDHc7MljTi3ND03JBlTzokzisxay_BgWMwejpQcNpDsREUjtK8Kj9zoHRHXZtvYk3XeZrmBzRhi6MIUzvFc97fNcL-Ozm296MyxfAVj5kLeZlKbjw0voYt8VfI82kRm56hip6j'
+                'Authorization': `Bearer ${token}`
             }
         })
         .then(r => r.json())
@@ -29,7 +29,7 @@ function CreatePlaylist() {
 
     return (
         <div id="created-playlist">
-            <CreatedPlaylist selectedGenres={selectedGenres}/>
+            <CreatedPlaylist selectedGenres={selectedGenres} token={token}/>
             <div id="genre-buttons">
                 <Genres genres={genres} handleClick={handleClick} selectedGenres={selectedGenres}/>
             </div>
