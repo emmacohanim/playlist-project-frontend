@@ -19,7 +19,7 @@ function CreatedPlaylist ({selectedGenres, token, songs, setSongs}) {
       ,[selectedGenres, token]) 
 
       const displaySongs = songs.map((s) => {
-        console.log(s["artists"][0]["name"])
+        // console.log(s["artists"][0]["name"])
         return  (
             <div>
                 <p>Title: {s["name"]} Artist:{s["artists"][0]["name"]}</p>
