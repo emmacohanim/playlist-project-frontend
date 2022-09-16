@@ -1,6 +1,6 @@
 import React, {useEffect } from 'react';
-function CreatedPlaylist ({selectedGenres, token, songs, setSongs}) {
 
+function CreatedPlaylist ({selectedGenres, token, songs, setSongs}) {
     useEffect(() => {
        if (selectedGenres.length>0) {
          fetch(`https://api.spotify.com/v1/recommendations?limit=20&seed_genres=${selectedGenres.join("%2C")}`, {
@@ -25,10 +25,6 @@ function CreatedPlaylist ({selectedGenres, token, songs, setSongs}) {
       }},[selectedGenres, token]) 
 
       const displaySongs = songs.map((s) => {
-<<<<<<< HEAD
-=======
-        // console.log(s["artists"][0]["name"])
->>>>>>> f2784ccfa9f84dd98d0349aacc4087e1f6fe5e8c
         return  (
             <div>
                 <p>Title: {s["title"]} Artist: {s["artist"]}</p>
