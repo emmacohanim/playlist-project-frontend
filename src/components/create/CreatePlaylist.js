@@ -4,7 +4,6 @@ import CreatedPlaylist from "./CreatedPlaylist"
 import {Form, Button} from "semantic-ui-react"
 import Header from "../Header"
 
-
 function CreatePlaylist( {token, addPlaylist} ) {
 
     const [genres, setGenres] = useState([])
@@ -100,7 +99,6 @@ function CreatePlaylist( {token, addPlaylist} ) {
         </div>
         
     )
-
 }
 
-export default CreatePlaylist
+export default CreatePlaylist;
