@@ -13,16 +13,21 @@ function CreatedPlaylist ({selectedGenres, token, songs, setSongs}) {
         })
         .then(r=>r.json())
         .then(songs => {
-            setSongs(songs.tracks)
+            setSongs(songs.tracks.map((s)=>{
+                return {
+                    title: s["name"],
+                    artist: s["artists"][0]["name"],
+                    album: s["album"]["name"],
+                    duration: s["duration_ms"]
+                  };
+            }))
             })
-      }}
-      ,[selectedGenres, token]) 
+      }},[selectedGenres, token]) 
 
       const displaySongs = songs.map((s) => {
-        console.log(s["artists"][0]["name"])
         return  (
             <div>
-                <p>Title: {s["name"]} Artist:{s["artists"][0]["name"]}</p>
+                <p>Title: {s["title"]} Artist: {s["artist"]}</p>
                 
             </div>
        

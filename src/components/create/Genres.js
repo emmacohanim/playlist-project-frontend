@@ -2,12 +2,12 @@ function Genres({ genres, handleClick, selectedGenres  }) {
   
 
   const selectedGenresP = selectedGenres.map((selectedGenre) => {
-    return <p>{selectedGenre}</p>;
+    return <p key={selectedGenre}>{selectedGenre}</p>;
   });
   // highlight
   const genreButtons = genres.map((genre) => {
     return (
-      <button
+      <button key={genre}
         className={
           selectedGenres.includes(genre)
             ? "genre-buttons active"
@@ -22,8 +22,8 @@ function Genres({ genres, handleClick, selectedGenres  }) {
 
   return (
     <div>
-      <p>{selectedGenresP}</p>
-      <div id="button-div">{genreButtons}</div>
+      {selectedGenresP}
+      <div key="buttons" id="button-div">{genreButtons}</div>
     </div>
   );
 }
